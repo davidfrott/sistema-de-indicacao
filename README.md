@@ -1,60 +1,64 @@
 # Desafio: Sistema de Indicação (Processo Seletivo)
 
-Este projeto é uma Single Page Application (SPA) que implementa um sistema de cadastro e indicação de usuários com pontuação, construído como parte de um processo seletivo. A aplicação foi desenvolvida seguindo todos os requisitos técnicos, funcionais e de estilização propostos.
+Olá! Este é o repositório do projeto que desenvolvi para o processo seletivo. **Foi um desafio muito bacana e vou explicar um pouco sobre ele aqui.**
 
-## Funcionalidades
+A aplicação é uma Single Page Application (SPA) que implementa um sistema de cadastro e indicação de usuários com pontuação, construída seguindo todos os requisitos propostos.
 
-* **Cadastro de Usuários:** Novos usuários podem se registrar com nome, e-mail e senha.
-* **Sistema de Indicação:** Após o cadastro, cada usuário recebe um link de indicação único.
-* **Pontuação:** Quando um novo usuário se cadastra através de um link de referência, o usuário que o indicou ganha 1 ponto.
-* **Perfil de Usuário:** Uma página de perfil exibe os dados do usuário, sua pontuação atual e o link de indicação.
-* **Persistência de Dados:** As informações dos usuários são salvas em um banco de dados SQL, garantindo que os dados permaneçam mesmo após o servidor ser reiniciado.
-* **Sessão de Usuário:** A aplicação "lembra" do usuário ao recarregar a página, mostrando diretamente o perfil sem a necessidade de um novo login.
+## O que o projeto faz (Funcionalidades)
 
-## Tecnologias Utilizadas e Justificativas
+* **Cadastro de Usuários:** Permite que novos usuários se registrem com nome, e-mail e senha.
+* **Sistema de Indicação:** Depois do cadastro, cada pessoa ganha um link único para convidar outros.
+* **Pontuação:** Quando alguém se cadastra usando um link de referência, o dono do link ganha 1 ponto.
+* **Perfil de Usuário:** Uma página de perfil mostra os dados do usuário, sua pontuação e o link para compartilhar.
+* **Persistência de Dados:** As informações são salvas em um banco de dados SQL, então nada se perde se o servidor reiniciar.
+* **Sessão de Usuário:** A aplicação "lembra" de você. Se recarregar a página, seu perfil continua lá, sem precisar fazer login de novo.
+
+## Tecnologias que usei e por quê
 
 ### Front-end
 
 * **Tecnologia:** HTML, CSS e JavaScript Puros (Vanilla JS).
-* **Justificativa:** A escolha por não utilizar frameworks como React ou Vue foi deliberada para demonstrar um domínio sólido das tecnologias fundamentais da web. Esta abordagem foca na manipulação direta do DOM, no gerenciamento de estado manual e no uso da Fetch API nativa do navegador para comunicação com o back-end, mostrando proficiência nas bases do desenvolvimento front-end.
+* **Justificativa:** **Para o front-end, eu decidi não usar frameworks como React ou Vue. Meu objetivo era mostrar que tenho uma base sólida nas tecnologias essenciais da web. Acredito que** entender como manipular o DOM e se comunicar com uma API "na raça" é um conhecimento fundamental para qualquer desenvolvedor.
 
 ### Back-end
 
 * **Tecnologia:** Node.js com Express.js e SQLite.
-* **Justificativa:** Node.js e Express foram escolhidos por formarem um ecossistema leve, rápido e extremamente popular para a criação de APIs REST. Para o armazenamento de dados, optou-se pelo **SQLite**, um banco de dados SQL robusto e serverless. Essa escolha torna o projeto mais profissional ao garantir a persistência dos dados, sem a complexidade de configurar um servidor de banco de dados externo. O banco de dados inteiro fica contido em um único arquivo (`database.db`), facilitando a execução e o compartilhamento do projeto.
+* **Justificativa:** **No back-end, minha escolha foi Node.js com Express.** É um ecossistema que eu gosto bastante, super leve e rápido para criar APIs. Para os dados, **comecei pensando em um array simples, mas para deixar o projeto mais profissional, optei por usar SQLite.** A ideia foi ter um banco de dados SQL de verdade, com persistência, mas sem a complexidade de ter que instalar um servidor separado. Tudo fica em um arquivinho só, o que facilita muito na hora de rodar o projeto.
 
 ## Como Executar o Projeto Localmente
 
-**Pré-requisitos:**
-* É necessário ter o [Node.js](https://nodejs.org/) instalado.
-* Recomenda-se o uso do Visual Studio Code com a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+**O que você vai precisar:**
+* [Node.js](https://nodejs.org/) instalado.
+* VS Code com a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) (facilita bastante).
 
-**1. Back-end:**
+**1. Rodando o Back-end:**
 
-No terminal, navegue até a pasta do projeto e execute os seguintes comandos:
+No seu terminal, siga estes passos:
 
 ```bash
 # 1. Entre na pasta do back-end
 cd backend
 
-# 2. Instale as dependências (Express, CORS e SQLite)
+# 2. Instale as dependências
 npm install
 
 # 3. Inicie o servidor
 node server.js
 ```
-O terminal deverá exibir a mensagem `Servidor rodando na porta 3001`. Ao iniciar pela primeira vez, um arquivo chamado `database.db` será criado nesta pasta. Deixe este terminal aberto.
+Você verá a mensagem `Servidor rodando na porta 3001`. Um arquivo `database.db` vai aparecer na pasta. Deixe o terminal rodando.
 
-**2. Front-end:**
+**2. Rodando o Front-end:**
 
-1.  Abra a pasta `frontend` com o Visual Studio Code.
+1.  Abra a pasta `frontend` no VS Code.
 2.  Clique com o botão direito no arquivo `index.html`.
-3.  Selecione a opção **"Open with Live Server"**.
+3.  Selecione **"Open with Live Server"**.
 
-Uma nova aba do navegador será aberta e a aplicação estará pronta para uso.
+E pronto! A aplicação abrirá no seu navegador.
 
-## Colaboração com IA
+## Colaboração com IA (Uma história de debug)
+
+**Aqui eu queria contar um pouco sobre como usei a IA neste projeto.**
 
 * **Ferramenta:** GitHub Copilot.
-* **Utilização:** Durante o desenvolvimento, enfrentei um desafio específico de rede onde a conexão com o servidor local era recusada (`ERR_CONNECTION_REFUSED`), principalmente ao testar o link de indicação em uma janela anônima. Utilizei o Copilot como uma ferramenta de auxílio na depuração. Ele sugeriu possíveis causas para o problema, como conflitos de porta e diferenças de tratamento entre `localhost` e `127.0.0.1`.
-* **Aprendizado:** Embora as sugestões da IA tenham apontado a direção correta, a solução final veio da minha própria investigação ao observar que o Live Server estava operando em uma porta (`5500`) diferente da que estava sendo usada no link (`5501`). A interação com a IA foi valiosa para acelerar o diagnóstico do problema, me ensinando a ter mais atenção sobre como os servidores de desenvolvimento gerenciam as portas de rede localmente.
+* **Utilização:** **Eu me deparei com um bug bem chato** de rede, onde a conexão com o servidor local não funcionava de jeito nenhum (`ERR_CONNECTION_REFUSED`), principalmente quando eu ia testar o link de indicação. **Pedi uma ajuda ao GitHub Copilot** para ter algumas ideias. Ele me deu umas pistas boas, como possíveis conflitos de porta e a diferença entre `localhost` e `127.0.0.1`.
+* **Aprendizado:** **No fim das contas, a solução veio da minha própria investigação**, percebendo que o Live Server tinha trocado a porta que estava usando. **O que eu aprendi com isso** foi que a IA é uma ótima ferramenta para acelerar o diagnóstico, mas a atenção aos detalhes e o raciocínio para encontrar a causa raiz do problema ainda são fundamentais.
