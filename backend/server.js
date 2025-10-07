@@ -61,6 +61,30 @@ app.post('/register', (req, res) => {
     });
 });
 
+app.post('/login', (req, res) => {
+    const { email, senha } = req.body;
+
+    if (!email || !senha) {
+        return res.status(400).json({ message: 'E-mail e senha são obrigatórios.' });
+    }
+
+    const sql = "SELECT * FROM users WHERE email = ?";
+    db.get(sql, [email], (err, user) => {
+        if (err) {
+            return res.status(500).json({ message: "Erro no servidor.", error: err.message });
+        }
+        
+        if (!user || user.senha !== senha) {
+            return res.status(401).json({ message: 'E-mail ou senha inválidos.' });
+        }
+
+        console.log('Usuário logado:', user.nome);
+
+        const { senha: _, ...userToReturn } = user;
+        res.status(200).json(userToReturn);
+    });
+});
+
 app.get('/profile/:email', (req, res) => {
     const { email } = req.params;
     const sql = "SELECT * FROM users WHERE email = ?";

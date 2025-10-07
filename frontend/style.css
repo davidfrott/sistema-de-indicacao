@@ -171,3 +171,19 @@ button:active {
   fill: var(--primary-color);
   outline: none;
 }
+
+.switcher {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.switcher a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switcher a:hover {
+    text-decoration: underline;
+}

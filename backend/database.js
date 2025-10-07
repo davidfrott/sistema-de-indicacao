@@ -1,5 +1,3 @@
-// backend/database.js
-
 const sqlite3 = require('sqlite3').verbose();
 const DBSOURCE = "database.db";
 

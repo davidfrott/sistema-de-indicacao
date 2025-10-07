@@ -6,6 +6,7 @@ A aplicação é uma Single Page Application (SPA) que implementa um sistema de 
 
 ## O que o projeto faz (Funcionalidades)
 
+* **Login de Usuários:** Permite que usuários já cadastrados acessem seu perfil.
 * **Cadastro de Usuários:** Permite que novos usuários se registrem com nome, e-mail e senha.
 * **Sistema de Indicação:** Depois do cadastro, cada pessoa ganha um link único para convidar outros.
 * **Pontuação:** Quando alguém se cadastra usando um link de referência, o dono do link ganha 1 ponto.
