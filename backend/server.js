@@ -10,6 +10,17 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// ==========================================
+// CONFIGURAÇÃO DO FRONTEND ADICIONADA AQUI
+// Serve os ficheiros estáticos (CSS, JS) da pasta frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Quando acederem à raiz do site (/), mostra o index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+// ==========================================
+
 app.post('/register', (req, res) => {
     const { nome, email, senha, referredBy } = req.body;
 
@@ -102,7 +113,6 @@ app.get('/profile/:email', (req, res) => {
         res.status(200).json(userToReturn);
     });
 });
-
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
