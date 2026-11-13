@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #5E35B1; 
+    --primary-color-dark: #4527A0;
+    --background-gradient-start: #f5f7fa;
+    --background-gradient-end: #c3cfe2;
+    --form-background: #ffffff;
+    --text-color: #2c3e50; 
+    --text-color-light: #7f8c8d;
+    --border-color: #e0e0e0; 
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: linear-gradient(to top, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem; 
+    background-color: var(--form-background);
+    border-radius: 12px;  
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+main:hover {
+    
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color); 
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; 
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(94, 53, 177, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(94, 53, 177, 0.2);
+}
+
+button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 10px rgba(94, 53, 177, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(94, 53, 177, 0.2);
+}
+
+.hidden { display: none; }
+.error-message { color: var(--error-color); text-align: center; margin-top: 1rem; min-height: 1.2em; }
+.success-message { color: var(--success-color); text-align: center; margin-top: 0.5rem; min-height: 1.2em; }
+.profile-info p { font-size: 1.1rem; line-height: 1.6; }
+
+.referral-box {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.referral-box input {
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color-light);
+}
+
+.logout {
+    margin-top: 1.5rem;
+    background-color: #78909C; 
+    box-shadow: 0 4px 6px rgba(120, 144, 156, 0.2);
+}
+
+.form-group .password-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group .password-wrapper input#senha {
+  padding-right: 3rem; 
+  box-sizing: border-box;
+}
+
+.form-group .password-wrapper .toggle-password-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: none;      
+  border: none;        
+  outline: none;        
+  box-shadow: none;      
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.form-group .password-wrapper .toggle-password-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #9AA0A6;
+  transition: fill .15s ease;
+  pointer-events: none;  
+}
+
+.form-group .password-wrapper .toggle-password-btn:hover svg {
+  fill: var(--primary-color);
+  outline: none;
+}
+
+.switcher {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.switcher a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switcher a:hover {
+    text-decoration: underline;
+}
