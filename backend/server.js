@@ -13,11 +13,11 @@ app.use(express.json());
 // ==========================================
 // CONFIGURAÇÃO DO FRONTEND ADICIONADA AQUI
 // Serve os ficheiros estáticos (CSS, JS) da pasta frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Quando acederem à raiz do site (/), mostra o index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 // ==========================================
 
